@@ -79,10 +79,10 @@ var changeColor = function () {
 
 var changeColor2 = function () {
   var r1 = getRandomIntInclusive(0, 255).toString(16);
-  var g2 = getRandomIntInclusive(0, 255).toString(16);
-  var b3 = getRandomIntInclusive(0, 255).toString(16);
+  var g1 = getRandomIntInclusive(0, 255).toString(16);
+  var b1 = getRandomIntInclusive(0, 255).toString(16);
 
-  div.style.background = `#${r1}${g2}${b3}`;
+  div.style.background = `#${r1}${g1}${b1}`;
 }
 changeColor2();
 
