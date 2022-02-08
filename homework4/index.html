@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="login">Введите ваше имя</label>
+        <input type="text" id="login" minlength = "2" required name="login">
+        <br>
+        <label for="email">Введите ваш email</label>
+        <input type="email" id="email" required minlength = "3" name="email">
+        <br>
+        <label for="password">Введите ваш пароль</label>
+        <input type="password" id="password" required minlength = "8" maxlength="16" name="password">
+        <br>
+        <label for="numberEaten">Сколько вы съели яблок?</label>
+        <input type="number" id="numberEaten" required minlength = "1" name="numberEaten" >
+        <br>
+        <label for="thanks">Скажите спасибо за яблочки</label>
+        <input type="text" id="thanks" required name="thanks">
+        <br>
+        <label for="checkbox">Вы согласны на обучение?</label>
+        <input type="checkbox" id="checkbox" required name="checkbox">
+
+        <button id="submit">Submit</button>
+        <button id="validate">Validate</button>
+
+    </form>
+
+    <script src="./Task1.js"></script>
+</body>
+</html>
