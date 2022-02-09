@@ -29,19 +29,18 @@
 
 
 function Comment(name, text, avatarUrl) {
-  this.name = name,
-    this.text = text,
-    this.avatarUrl = avatarUrl;
-  this.likes = 0,
-    this.countLikes = function () {
-      return this.likes++;
-    }
+  this.name = name;
+  this.text = text;
+  if (avatarUrl) this.avatarUrl = avatarUrl;
+  this.likes = 0;
 };
 
-var myComment1 = new Comment("Peter", "Hello", "https://shutnikov.club/wp-content/uploads/2019/11/boroda_avatarka_48_26074904.jpg");
+Comment.prototype.avatarUrl = "https://shutnikov.club/wp-content/uploads/2019/11/boroda_avatarka_48_26074904.jpg";
+Comment.prototype.countLikes = function () {
+  return this.likes++;
+}
 
-console.log(myComment1);
-
+var myComment1 = new Comment("Peter", "Hello");
 var myComment2 = new Comment("Frank", "Hi", "https://static-cse.canva.com/blob/742071/1600w-2so4RyuRmfc.jpg");
 var myComment3 = new Comment("Lisa", "Good day", "https://static-cse.canva.com/blob/742069/1600w-OUwmy_8MS6I.jpg");
 var myComment4 = new Comment("Carla", "Hey there", "https://static-cse.canva.com/blob/742068/1600w--JuHp_Tx_2w.jpg");
@@ -53,14 +52,30 @@ function CommentsToHtml(arr) {
 
   arr.forEach(element => {
 
-    console.log(Object.values(element));
+    var containerName = document.createElement('h2');
+    containerName.innerText = element.name;
+    commentsFeed.appendChild(containerName);
 
-    var li = document.createElement('li');
-    li.innerText = Object.values(element);
+    var newText = document.createElement('p');
+    newText.innerText = element.text;
+    commentsFeed.appendChild(newText);
 
-    commentsFeed.appendChild(li);
+    var newAva = document.createElement('img');
+    newAva.src = element.avatarUrl;
+    newAva.style.width = 100 + 'px';
+    newAva.style.height = 100 + 'px';
+    commentsFeed.appendChild(newAva);
+
+    var likes = document.createElement('button');
+    likes.innerText = element.likes;
+
+    likes.addEventListener('click', function () {
+      element.countLikes();
+      likes.innerText = element.likes;
+    });
+
+    commentsFeed.appendChild(likes);
   });
-
 
 }
 
