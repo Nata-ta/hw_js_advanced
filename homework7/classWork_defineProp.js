@@ -32,15 +32,13 @@ class SuperDude {
     this.powers = powers.map(elem => {
       Object.defineProperty(this, elem.name, {
         get: function () {
-          return elem.name = elem.spell;
+          return () => console.log(elem.spell())
         }
       });
     })
 
     Object.defineProperty(this, "name", {
-      writable: false,
-      configurable: false,
-      enumerabl: false,
+      value: this.name
     });
   }
 }
